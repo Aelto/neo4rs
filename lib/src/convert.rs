@@ -271,6 +271,12 @@ impl Into<BoltType> for i64 {
     }
 }
 
+impl Into<BoltType> for f64 {
+    fn into(self) -> BoltType {
+        BoltType::Float(BoltFloat::new(self))
+    }
+}
+
 impl Into<BoltType> for String {
     fn into(self) -> BoltType {
         BoltType::String(self.into())
