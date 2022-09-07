@@ -760,7 +760,6 @@ mod query;
 mod row;
 mod stream;
 mod txn;
-mod types;
 mod version;
 
 pub use crate::config::{config, Config, ConfigBuilder};
@@ -771,3 +770,4 @@ pub use crate::row::{Node, Path, Point2D, Point3D, Relation, Row, UnboundedRelat
 pub use crate::stream::RowStream;
 pub use crate::txn::Txn;
 pub use crate::version::Version;
+pub mod types;
