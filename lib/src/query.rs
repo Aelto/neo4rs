@@ -22,6 +22,10 @@ impl Query {
         }
     }
 
+    pub fn new_with_params(query: String, params: BoltMap) -> Self {
+        Query { query, params }
+    }
+
     pub fn param<T: std::convert::Into<BoltType>>(mut self, key: &str, value: T) -> Self {
         self.params.put(key.into(), value.into());
         self

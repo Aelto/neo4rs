@@ -4,6 +4,7 @@ use crate::pool::{create_pool, ConnectionPool};
 use crate::query::Query;
 use crate::stream::RowStream;
 use crate::txn::Txn;
+use crate::types::BoltMap;
 use std::sync::Arc;
 use tokio::sync::Mutex;
 
@@ -16,6 +17,10 @@ pub struct Graph {
 /// Returns a [`Query`] which provides methods like [`Query::param`] to add parameters to the query
 pub fn query(q: &str) -> Query {
     Query::new(q.to_owned())
+}
+
+pub fn query_with_params(query: &str, params: BoltMap) -> Query {
+    Query::new_with_params(query.to_owned(), params)
 }
 
 impl Graph {
